@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { User } from './services/dataBase/schema/schemaTypes';
 import { getData } from './services/dataBase/storeHandlers/user';
+import { Vue3Snackbar } from "vue3-snackbar";
 
 if (process.client) {
 
@@ -25,6 +26,13 @@ const isLoading = useState("isLoading", () => false)
 
 <template>
   <div class="w-full min-h-screen bg-secondary-50">
+  <Vue3Snackbar
+      top
+      right
+      duration="0"
+      border="left"
+      groups
+    />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
