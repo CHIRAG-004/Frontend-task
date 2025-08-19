@@ -1,0 +1,32 @@
+{
+  "Sports": ["FootBall", "Cricket", "Badminton", "Ludo"],
+  "HealthCare": ["Dentist", "Physiotherapist", "Dermatologist", "Psychologist"],
+  "Wellness": ["Yoga", "Meditation", "Nutritionist", "Fitness Trainer"],
+  "Education": ["School", "College", "Online Courses", "Tutoring"],
+  "Technology": [
+    "Programming",
+    "Web Development",
+    "Data Science",
+    "Cybersecurity"
+  ],
+  "Entertainment": ["Movies", "Music", "Gaming", "Theater"],
+  "Travel": ["Adventure", "Beach", "Historical", "Cultural"],
+  "Food & Drink": ["Restaurants", "Recipes", "Beverages", "Desserts"],
+  "Fashion": ["Clothing", "Accessories", "Footwear", "Jewelry"],
+  "Finance": ["Investing", "Budgeting", "Loans", "Taxes"],
+  "Home & Garden": [
+    "Interior Design",
+    "Gardening",
+    "DIY Projects",
+    "Home Improvement"
+  ],
+  "Automotive": ["Cars", "Motorcycles", "Maintenance", "Accessories"],
+  "Pets": ["Dogs", "Cats", "Birds", "Fish"],
+  "Arts & Crafts": ["Painting", "Drawing", "Sewing", "Pottery"],
+  "Science": ["Biology", "Chemistry", "Physics", "Astronomy"],
+  "Business": ["Entrepreneurship", "Marketing", "Management", "Startups"],
+  "Social Media": ["Instagram", "Twitter", "Facebook", "LinkedIn"],
+  "Hobbies": ["Photography", "Reading", "Gardening", "Cooking"],
+  "Events": ["Weddings", "Parties", "Conferences", "Festivals"],
+  "Shopping": ["Electronics", "Fashion", "Groceries", "Books"]
+}

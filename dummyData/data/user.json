@@ -1,0 +1,92 @@
+[
+  {
+    "id": "1",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/men/1.jpg",
+    "role": "provider",
+    "providerServicesIds": ["101", "102"]
+  },
+  {
+    "id": "2",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "email": "jane.smith@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/women/2.jpg",
+    "role": "provider",
+    "providerServicesIds": ["103", "104"]
+  },
+  {
+    "id": "3",
+    "firstName": "Michael",
+    "lastName": "Brown",
+    "email": "michael.brown@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/men/3.jpg",
+    "role": "provider",
+    "providerServicesIds": ["105", "106"]
+  },
+  {
+    "id": "4",
+    "firstName": "Emily",
+    "lastName": "Davis",
+    "email": "emily.davis@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/women/4.jpg",
+    "role": "provider",
+    "providerServicesIds": ["107", "108"]
+  },
+  {
+    "id": "5",
+    "firstName": "David",
+    "lastName": "Wilson",
+    "email": "david.wilson@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/men/5.jpg",
+    "role": "provider",
+    "providerServicesIds": ["109", "110"]
+  },
+  {
+    "id": "6",
+    "firstName": "Sarah",
+    "lastName": "Anderson",
+    "email": "sarah.anderson@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/women/6.jpg",
+    "role": "provider",
+    "providerServicesIds": ["111", "112"]
+  },
+  {
+    "id": "7",
+    "firstName": "James",
+    "lastName": "Martinez",
+    "email": "james.martinez@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/men/7.jpg",
+    "role": "provider",
+    "providerServicesIds": ["113", "114"]
+  },
+  {
+    "id": "8",
+    "firstName": "Olivia",
+    "lastName": "Taylor",
+    "email": "olivia.taylor@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/women/8.jpg",
+    "role": "provider",
+    "providerServicesIds": ["115", "116"]
+  },
+  {
+    "id": "9",
+    "firstName": "William",
+    "lastName": "Moore",
+    "email": "william.moore@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/men/9.jpg",
+    "role": "provider",
+    "providerServicesIds": ["117", "118"]
+  },
+  {
+    "id": "10",
+    "firstName": "Sophia",
+    "lastName": "Jackson",
+    "email": "sophia.jackson@example.com",
+    "profilePicture": "https://randomuser.me/api/portraits/women/10.jpg",
+    "role": "provider",
+    "providerServicesIds": ["119", "120"]
+  }
+]
