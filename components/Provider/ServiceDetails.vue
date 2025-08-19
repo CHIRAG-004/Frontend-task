@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Days, Image, ProviderService, Slot } from '~/services/dataBase/schema/schemaTypes';
 import { v4 as uuidv4 } from 'uuid';
-import { useToast } from 'vue-toastification';
 
 // selected service subcategory
 const props = defineProps<{
@@ -150,7 +149,7 @@ const handleFileUpload = async (event: Event) => {
         const file: File = target.files[0]
         // can only upload 5 images
         if(images.value.length >= 5){
-            useToast().info("You can only upload 5 images")
+            onInfo("You can only upload 5 images")
             return 
         }
         images.value.push({
@@ -232,7 +231,7 @@ async function save() {
 
         // updating service details in provider service store
         providerServicesStore.updateService({ ...service.value, ...provider })
-        useToast().success("Service details updated.")
+        onSuccess("Service details updated.")
     } catch (error) {
         console.error(error)
     }

@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import { useToast } from 'vue-toastification';
-
-
 const {  appointment } = defineProps(["appointment"])
 const { createReviewAndRating } = useReview()
-
-const toast = useToast()
 
 const isModalOpen = ref(false);
 const rating = ref(0);
@@ -24,7 +19,7 @@ const setRating = (star: number) => {
 
 const submitReview = async () => {
     await createReviewAndRating(appointment, review.value, rating.value)
-    toast.success('Review created')
+    onSuccess('Review created')
     closeModal();
 };
 </script>

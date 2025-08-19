@@ -16,7 +16,6 @@ import {
   getAllUser,
   getData,
 } from "~/services/dataBase/storeHandlers/user";
-import { useToast } from "vue-toastification";
 
 export const useAuth = () => {
   const { $auth } = useNuxtApp();
@@ -43,7 +42,6 @@ export const useAuth = () => {
     });
   };
 
-  const toast = useToast();
   const router = useRouter();
 
   // Email/Password Sign In
@@ -59,7 +57,7 @@ export const useAuth = () => {
         }
       }
       useAppointment().getAllAppointments();
-      toast.success("logged in");
+      onSuccess("logged in");
       router.push("/user/profile");
     } catch (error) {
       handleAuthError(error);
@@ -103,7 +101,7 @@ export const useAuth = () => {
       UserStore().allUser.push(userData);
 
       router.push("/user/profile");
-      toast.success("Registered and logged in successfully");
+      onSuccess("Registered and logged in successfully");
     } catch (error) {
       handleAuthError(error);
     }
@@ -115,7 +113,7 @@ export const useAuth = () => {
       await signOut($auth);
       clearUser();
       AppointmentStore().clearAppointments();
-      toast.success("logged out");
+      onSuccess("logged out");
       router.push("/");
     } catch (error) {
       handleAuthError(error);
@@ -161,8 +159,8 @@ export const useAuth = () => {
         UserStore().setUser(userData as User);
         UserStore().allUser.push(userData);
 
-        toast.success("Registered and logged in successfully");
-      } else toast.success("Logged in");
+        onSuccess("Registered and logged in successfully");
+      } else onSuccess("Logged in");
 
       // if user exists in db then logged in and set user data into user store
       setUser(userData);
@@ -176,7 +174,7 @@ export const useAuth = () => {
   // Unified error handler
   const handleAuthError = (error: any) => {
     if (error instanceof Error) {
-      toast.error("Wrong email and password");
+      onFailure("Wrong email and password");
       throw new Error(error.message);
     }
     throw new Error("An unknown authentication error occurred");

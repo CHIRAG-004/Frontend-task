@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useToast } from 'vue-toastification';
 import type { ProviderService, Slot } from '~/services/dataBase/schema/schemaTypes';
 const { providerService } = defineProps<{
   providerService: ProviderService
@@ -58,12 +57,12 @@ function check(slot: Slot): boolean {
 
 function handleClick() {
   if (UserStore().getUser?.id == providerService.userId) {
-    useToast().info("You can't book your own appointment")
+    onInfo("You can't book your own appointment")
     return
   }
   if (!selectedSlot.value) {
     if (UserStore().getUserRole == "provider") {
-      useToast().info("Switch your profile to consumer")
+      onInfo("Switch your profile to consumer")
       return
     } else {
       isSlotModalOpen.value = true

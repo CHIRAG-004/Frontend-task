@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Days, Image, ProviderService, Slot } from '~/services/dataBase/schema/schemaTypes';
 import { v4 as uuidv4 } from 'uuid';
-import { useToast } from 'vue-toastification';
 
 const props = defineProps<{
     userId: string
@@ -158,7 +157,7 @@ const handleFileUpload = async (event: Event) => {
 
         // can only upload only 5 images
         if (images.value.length >= 5) {
-            useToast().info("You can only upload 5 images")
+            onInfo("You can only upload 5 images")
             return
         }
         images.value.push({
@@ -192,7 +191,7 @@ async function add() {
 
     // checks from required fields
     if (category.value == "" || subCategory.value == "" || !slots.value.filter(slot => slot.selected).length) {
-        useToast().error('All fields are required.')
+        onFailure('All fields are required.')
         return
     }
 

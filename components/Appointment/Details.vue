@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useToast } from 'vue-toastification';
 import type { User } from '~/services/dataBase/schema/schemaTypes';
 import type { Appointment } from '~/services/dataBase/schema/schemaTypes';
 
@@ -9,7 +8,6 @@ interface NewAppointment extends Appointment {
     data?: Partial<User> & { cancellationAvailability: number }
 }
 
-const toast = useToast();
 const props = defineProps<{
     isOpen: boolean;
     appointment: NewAppointment;
@@ -27,7 +25,7 @@ const closeModal = () => {
 
 async function handleConfirm() {
     await cancelAppointment(props.appointment);
-    toast.success('Appointment cancelled');
+    onSuccess('Appointment cancelled');
     closeModal();
 }
 
@@ -45,7 +43,7 @@ function clickHandler(e: Event) {
 function handleCancleClick() {
     if (props.appointment.data?.cancellationAvailability! < (new Date(props.appointment.bookedDate).getTime() - new Date().getTime()) / (1000 * 60 * 60)) {
         showModal.value = true
-    } else useToast().info("cancellation Availability Exceeds")
+    } else onInfo("cancellation Availability Exceeds")
 }
 </script>
 

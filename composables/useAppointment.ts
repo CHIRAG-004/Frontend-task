@@ -1,4 +1,3 @@
-import { useToast } from "vue-toastification";
 import type {
   Appointment,
   Image,
@@ -20,7 +19,6 @@ interface NewAppointment extends Appointment {
   data?: Partial<User> & { cancellationAvailability: number };
 }
 
-const toast = useToast();
 const { addAImage } = useImage();
 
 export const useAppointment = () => {
@@ -133,14 +131,14 @@ export const useAppointment = () => {
           ? [...getUser.consumerAppointmentsIds, appointmentDetails.id]
           : [appointmentDetails.id],
       });
-      toast.success("appointment booked.");
+      onSuccess("appointment booked.");
 
       // adding new appointment in appointment store
       addAppointment(appointmentDetails);
       router.push("/user/profile");
     } catch (error) {
       console.log(error);
-      toast.error("Can't booked appointment");
+      onFailure("Can't booked appointment");
     }
   };
 
@@ -258,8 +256,7 @@ export const useAppointment = () => {
       // removing appointment from consumer appointments from appointment store
       appointmentStore.consumerAppointments.forEach((appt) =>
         appt.id == appointment.id
-          ? (appt.status = `cancelled by ${
-              getUser?.role == "provider" ? "provider" : "consumer"
+          ? (appt.status = `cancelled by ${getUser?.role == "provider" ? "provider" : "consumer"
             }`)
           : ""
       );
@@ -267,8 +264,7 @@ export const useAppointment = () => {
       // removing appointment from provideer appointments from appointment store
       appointmentStore.providerAppointments.forEach((appt) =>
         appt.id == appointment.id
-          ? (appt.status = `cancelled by ${
-              getUser?.role == "provider" ? "provider" : "consumer"
+          ? (appt.status = `cancelled by ${getUser?.role == "provider" ? "provider" : "consumer"
             }`)
           : ""
       );
@@ -313,7 +309,7 @@ export const useAppointment = () => {
     try {
       await updateImage(image);
       UserStore().updateUserDetails({ profilePicture: image });
-      toast.success("Image updated");
+      onSuccess("Image updated");
     } catch (error) {
       throw error;
     }
@@ -327,7 +323,7 @@ export const useAppointment = () => {
     try {
       await updateDocument(getUser?.id!, newUserDetails);
       UserStore().updateUserDetails(newUserDetails);
-      toast.success("user details updated");
+      onSuccess("user details updated");
     } catch (error) {
       throw error;
     }

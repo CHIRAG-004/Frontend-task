@@ -1,20 +1,17 @@
-import Toast, { type PluginOptions } from "vue-toastification";
-import "vue-toastification/dist/index.css";
+import { SnackbarService, useSnackbar } from "vue3-snackbar";
+import "vue3-snackbar/styles";
 
-const options: PluginOptions = {
-  timeout: 3000,
-  closeOnClick: true,
-  pauseOnFocusLoss: true,
-  pauseOnHover: true,
-  draggable: true,
-  draggablePercent: 0.6,
-  showCloseButtonOnHover: false,
-  hideProgressBar: false,
-  closeButton: "button",
-  icon: true,
-  rtl: false,
-};
+export default defineNuxtPlugin({
+  order: 50,
+  name: "snackbar",
+  setup: () => {
 
-export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(Toast, options);
+    useNuxtApp().vueApp.use(SnackbarService);
+    const snackbar = useSnackbar();
+    return {
+      provide: {
+        snackbar: snackbar,
+      },
+    };
+  },
 });

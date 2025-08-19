@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { useToast } from "vue-toastification";
 const { getUser } = UserStore();
 let dbRole = ref(getUser?.role)
 ProviderServicesStore().setAProviderServices(getUser?.id!)
 const { updateUserDetails, updateUserProfile } = useAppointment()
-const toast = useToast()
 const usedServices = ref<string[]>(ProviderServicesStore().aProviderServices.map(service => service.subCategory))
 const selectedService = ref<string>(usedServices.value.length > 0 ? usedServices.value[0] : "Add")
 const activeValue = ref(getUser?.role || "consumer");
@@ -62,7 +60,7 @@ async function changePicture(event: Event) {
     if (target.files && target.files[0]) {
         const file = target.files[0];
         if (!file.type.startsWith('image/')) {
-            toast.error('Please upload a valid image file.');
+            onFailure('Please upload a valid image file.');
             event.preventDefault();
             return
         }
@@ -83,7 +81,7 @@ async function handleConfirm() {
     if (UserStore().getUser?.role !== "provider" && dbRole.value !== "provider") {
         await updateUserDetails({ role: "provider" })
         dbRole.value = "provider"
-    } else toast.success(`Switched to ${activeValue.value === 'consumer' ? 'provider' : 'consumer'}`)
+    } else onSuccess(`Switched to ${activeValue.value === 'consumer' ? 'provider' : 'consumer'}`)
 
     UserStore().updateUserDetails({
         role: activeValue.value == 'consumer' ? 'provider' : 'consumer'
